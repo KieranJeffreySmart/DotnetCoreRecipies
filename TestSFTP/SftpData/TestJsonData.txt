@@ -1,0 +1,29 @@
+[{
+        "text": "These go to eleven.",
+        "source": "This Is Spinal Tap, 1984"
+    }, {
+        "text": "All you need to start an asylum is an empty room and the right kind of people.",
+        "source": "My Man Godfrey, 1936"
+    }, {
+        "text": "The Dude abides.",
+        "source": "The Big Lebowski,1998"
+    }, {
+        "text": "Hasta la vista, baby.",
+        "source": "Terminator 2:Judgment Day, 1991"
+    }, {
+        "text": "What we've got here is a failure tocommunicate.",
+        "source": "Cool Hand Luke, 1967"
+    }, {
+        "text": "Roads? Where we're going we don't need roads.",
+        "source": "Back to theFuture, 1985"
+    }, {
+        "text": "Houston, we have a problem.",
+        "source": "Apollo 13,1995"
+    }, {
+        "text": "To infinity and beyond!",
+        "source": "Toy Story,1995"
+    }, {
+        "text": "Hello. My name is Inigo Montoya. You killedmy father. Prepare to die.",
+        "source": "The Princess Bride, 1987"
+    }
+]
