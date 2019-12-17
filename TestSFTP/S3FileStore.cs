@@ -12,6 +12,7 @@ public class S3FileStore : IAsyncFileStore
     public S3FileStore(IAmazonS3 client, Func<IAmazonS3, ITransferUtility> transferUtilityFactory)
     {
         this.client = client;
+        this.transferUtilityFactory = transferUtilityFactory;
     }
 
     public async Task CreateSubDirectory(string directoryName)
@@ -28,7 +29,9 @@ public class S3FileStore : IAsyncFileStore
 
     public async Task<string> ReadFileAsText(string directoryName, string fileName)
     {
-        var streamReader = new StreamReader(await ReadFile(directoryName, fileName));
+        var stream = await ReadFile(directoryName, fileName);
+        stream.Position = 0;
+        var streamReader = new StreamReader(stream);
         return await streamReader.ReadToEndAsync();
     }
 
@@ -44,12 +47,10 @@ public class S3FileStore : IAsyncFileStore
         var stream = new MemoryStream();
         var streamWriter = new StreamWriter(stream);
         streamWriter.Write(text);
+        streamWriter.Flush();
+        stream.Position = 0;
 
         await WriteFile(stream, directoryName, fileName);
+        stream.Close();
     }
-}
-
-public class SftpFileStore: IFileStore
-{
-
 }

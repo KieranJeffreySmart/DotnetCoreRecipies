@@ -1,39 +1,19 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 
-public interface IAsyncFileStore: IFileWriter, IFileReader
-{
-    Task CreateSubDirectory(string directoryName);
-}
-
-public interface IFileWriter
-{
-    Task WriteFile(Stream stream, string directoryName, string fileName);
-
-    Task WriteTextFile(string text, string directoryName, string fileName);
-}
-
-public interface IFileReader
-{
-    Task<Stream> ReadFile(string directoryName, string name);
-
-    Task<string> ReadFileAsText(string directoryName, string fileName);
-}
-
-
-public interface ISynchronousFileStore: ISynchronousFileWriter, ISynchronousFileReader
+public interface IFileStore: IFileWriter, IFileReader
 {
     void CreateSubDirectory(string directoryName);
 }
 
-public interface ISynchronousFileWriter
+public interface IFileWriter
 {
     void WriteFile(Stream stream, string directoryName, string fileName);
 
     void WriteTextFile(string text, string directoryName, string fileName);
 }
 
-public interface ISynchronousFileReader
+public interface IFileReader
 {
     Stream ReadFile(string directoryName, string name);
 
